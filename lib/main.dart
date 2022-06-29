@@ -1,52 +1,111 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
+class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Welcome to Flutter',
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Welcome to Flutter'),
+    return Scaffold(
+      appBar: AppBar(title: Text('Main page')),
+      body: Center(
+        child: Text(
+          '1',
+          style: TextStyle(fontSize: 48),
         ),
-        body: const Center(
-          child: Text(
-            '1 page',
-            style: TextStyle(fontSize: 48),
-          ),
-
-          // TextButton(onPressed: () { }, child: Text('click'), color: Colors.blue),
-
-          // TextButton(
-          //   style: TextButton.styleFrom(
-          //     primary: Colors.red, // foreground
-          //   ),
-          //   onPressed: () { },
-          //   child: Text('TextButton with custom foreground'),
-          // )
-
-          // RaisedButton(onPressed: () {}, child: Text('click'), color: Colors.blue),
-
-          // FlatButton(child: Text('click'), onPressed: (), color: Colors.blue),
-        ),
-        backgroundColor: Colors.amberAccent,
-        floatingActionButton: FloatingActionButton(
-          child: Text('click'),
-          // centerTitle: true,
-          onPressed: () {
-            print('click');
-          },
-        ),
+      ),
+      backgroundColor: Colors.amberAccent,
+      floatingActionButton: FloatingActionButton(
+        child: Text('Next'),
+        onPressed: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => SecondScreen()));
+        },
       ),
     );
   }
 }
+
+class SecondScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('Second page')),
+      body: Center(
+        child: Text(
+          '2',
+          style: TextStyle(fontSize: 48),
+        ),
+      ),
+      backgroundColor: Colors.blueAccent,
+      floatingActionButton: FloatingActionButton(
+        child: Text('Back'),
+        onPressed: () {
+          Navigator.pop(context);
+        },
+      ),
+    );
+  }
+}
+
+void main() {
+  runApp(MaterialApp(
+    home: MainScreen(),
+  ));
+}
+
+
+
+
+
+
+
+// import 'package:flutter/material.dart';
+
+// void main() {
+//   runApp(const MyApp());
+// }
+
+// class MyApp extends StatelessWidget {
+//   const MyApp({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'Welcome to Flutter',
+//       home: Scaffold(
+//         appBar: AppBar(
+//           title: const Text('Welcome to Flutter'),
+//         ),
+//         body: const Center(
+//           child: Text(
+//             '1 page',
+//             style: TextStyle(fontSize: 48),
+//           ),
+
+//           // TextButton(onPressed: () { }, child: Text('click'), color: Colors.blue),
+
+//           // TextButton(
+//           //   style: TextButton.styleFrom(
+//           //     primary: Colors.red, // foreground
+//           //   ),
+//           //   onPressed: () { },
+//           //   child: Text('TextButton with custom foreground'),
+//           // )
+
+//           // RaisedButton(onPressed: () {}, child: Text('click'), color: Colors.blue),
+
+//           // FlatButton(child: Text('click'), onPressed: (), color: Colors.blue),
+//         ),
+//         backgroundColor: Colors.amberAccent,
+//         floatingActionButton: FloatingActionButton(
+//           child: Text('click'),
+//           // centerTitle: true,
+//           onPressed: () {
+//             print('click');
+//           },
+//         ),
+//       ),
+//     );
+//   }
+// }
 
 
 
